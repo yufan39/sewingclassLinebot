@@ -35,7 +35,11 @@ def showweb():
 #接著透過LineBotApi物件中reply_message()方法，回傳相同的訊息內容
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-	message = TextSendMessage(text='uweee')
+
+	userSend = event.message.text
+	userID = event.source.user_id
+
+	message = TextSendMessage(text='uweee~給我poni!!' + userID)
 	line_bot_api.reply_message(event.reply_token, message)
 
 @handler.add(MessageEvent, message=StickerMessage)
