@@ -3,6 +3,7 @@ from flask import Flask, request, abort
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import *
+import twder
 
 app = Flask(__name__)
 
@@ -39,8 +40,10 @@ def handle_message(event):
 	userSend = event.message.text
 	userID = event.source.user_id
 
-	message = TextSendMessage(text='uwee!hi' +userID)
-	line_bot_api.reply_message(event.reply_token, message)
+	if userSend =='USD':
+		message = TextSendMessage(text = twder.now(userSend)[2])
+		message = TextSendMessage(text='uwee!hi' +userID)
+		line_bot_api.reply_message(event.reply_token, message)
 
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_message(event):
