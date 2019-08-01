@@ -1,0 +1,11 @@
+Channel ID 
+1604742546
+
+Channel secret 
+853a1f3b0e46355ddf2a05b528de2a6b
+
+Channel access token (long-lived) 
+dOpNJmYXihRw/7+EjYUe+tgTYrADMNjWZ/ZpQRhe8YFhk/TzFdMrt+GLGKLJQEH3/Ve7a8+6KPoL7RtDW7YdKy23BAxO5hAg28UxqjLWClfeTBWDNp2rrjmArYv0uX2NgdkC7/JuCJItvdwf2BUQ9QdB04t89/1O/w1cDnyilFU=
+
+heroku password = !k*******
+git password = gr***********9
