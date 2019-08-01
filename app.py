@@ -39,7 +39,7 @@ def handle_message(event):
 	userSend = event.message.text
 	userID = event.source.user_id
 
-	message = TextSendMessage(text='hi' +userID 'uwee!')
+	message = TextSendMessage(text='uwee!hi' +userID)
 	line_bot_api.reply_message(event.reply_token, message)
 
 @handler.add(MessageEvent, message=StickerMessage)
