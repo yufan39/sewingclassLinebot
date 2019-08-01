@@ -47,7 +47,8 @@ def handle_message(event):
 		message = TextSendMessage(text=currencySearch('JPY'))
 	else:
 		message = TextSendMessage(text='uwee!hi')
-		line_bot_api.reply_message(event.reply_token, message)
+
+	line_bot_api.reply_message(event.reply_token, message)
 
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_message(event):
