@@ -3,7 +3,8 @@ from flask import Flask, request, abort
 from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import *
-import twder
+
+from 引尋.twder查詢 import currencySearch
 
 app = Flask(__name__)
 
@@ -40,9 +41,12 @@ def handle_message(event):
 	userSend = event.message.text
 	userID = event.source.user_id
 
-	if userSend =='USD':
-		message = TextSendMessage(text = twder.now(userSend)[2])
-		message = TextSendMessage(text='uwee!hi' +userID)
+	if userSend == '美金':
+		message = TextSendMessage(text=currencySearch('USD'))
+	elif userSend == '日幣':
+		message = TextSendMessage(text=currencySearch('JPY'))
+	else:
+		message = TextSendMessage(text='uwee!hi')
 		line_bot_api.reply_message(event.reply_token, message)
 
 @handler.add(MessageEvent, message=StickerMessage)
