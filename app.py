@@ -39,12 +39,12 @@ def handle_message(event):
 	userSend = event.message.text
 	userID = event.source.user_id
 
-	message = TextSendMessage(text='uweee~給我poni!!' + userID)
+	message = TextSendMessage(text='hi' +userID 'uwee!')
 	line_bot_api.reply_message(event.reply_token, message)
 
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_message(event):
-	message = TextSendMessage(text='kuwee')
+	message = TextSendMessage(text='kuwee!')
 	line_bot_api.reply_message(event.reply_token, message)
 
 import os
