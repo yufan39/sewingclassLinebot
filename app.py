@@ -37,17 +37,7 @@ def showweb():
 #接著透過LineBotApi物件中reply_message()方法，回傳相同的訊息內容
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-
-	userSend = event.message.text
-	userID = event.source.user_id
-
-	if userSend == '美金':
-		message = TextSendMessage(text=currencySearch('USD'))
-	elif userSend == '日幣':
-		message = TextSendMessage(text=currencySearch('JPY'))
-	else:
-		message = TextSendMessage(text='uwee!hi')
-
+	message = TextSendMessage(text='kuwee!')
 	line_bot_api.reply_message(event.reply_token, message)
 
 @handler.add(MessageEvent, message=StickerMessage)
