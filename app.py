@@ -28,7 +28,7 @@ def callback():
 
 @app.route("/web")
 def showweb():
-	return'<h1>hello every one</h1>'
+	return'<h1>Hello every one,I am Dolphing Lee,from Taiwan Hualian! No Poni No Life</h1>'
 
 #處理訊息
 #當訊息種類為TextMessage時，從event中取出訊息內容，藉由TextSendMessage()包裝成符合格式的物件，並貼上message的標籤方便之後取用。
@@ -41,11 +41,6 @@ def handle_message(event):
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_message(event):
 	message = TextSendMessage(text='kuwee!')
-	line_bot_api.reply_message(event.reply_token, message)
-
-@handler.add(MessageEvent, message="笨豚")
-def handle_message(event):
-	message = ImageSendMessage(original_content_url='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Chrome_icon_%28September_2014%29.svg/220px-Google_Chrome_icon_%28September_2014%29.svg.png',preview_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Chrome_icon_%28September_2014%29.svg/220px-Google_Chrome_icon_%28September_2014%29.svg.png')
 	line_bot_api.reply_message(event.reply_token, message)
 
 import os
