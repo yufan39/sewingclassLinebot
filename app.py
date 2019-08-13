@@ -4,8 +4,6 @@ from linebot import (LineBotApi, WebhookHandler)
 from linebot.exceptions import (InvalidSignatureError)
 from linebot.models import *
 
-from 引尋.twder查詢 import currencySearch
-
 app = Flask(__name__)
 
 # 設定你的Channel Access Token
@@ -43,6 +41,11 @@ def handle_message(event):
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_message(event):
 	message = TextSendMessage(text='kuwee!')
+	line_bot_api.reply_message(event.reply_token, message)
+
+@handler.add(MessageEvent, message="笨豚")
+def handle_message(event):
+	message = ImageSendMessage(original_content_url='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Chrome_icon_%28September_2014%29.svg/220px-Google_Chrome_icon_%28September_2014%29.svg.png',preview_image_url='https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Google_Chrome_icon_%28September_2014%29.svg/220px-Google_Chrome_icon_%28September_2014%29.svg.png')
 	line_bot_api.reply_message(event.reply_token, message)
 
 import os
